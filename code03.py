@@ -11,11 +11,10 @@ elif myDigit == "10":
 elif myDigit == "8":
     myInput = int(myInput, 8)
     
-elif myDigit == "2":
+else:
     myInput = int(myInput, 2)
     
-else:
-    print("16/10/8/2 숫자만 입력하세요")
+
     
 print("16진수 ==> ", hex(myInput))
 print("10진수 ==> ", myInput)
