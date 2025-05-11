@@ -1,0 +1,28 @@
+from tkinter import *
+import random
+
+window = Tk()
+window.geometry("210x210")
+
+btnList = [None] * 9
+photoList = [None] * 9
+fnameList = ["1.gif", "2.gif", "3.gif", "4.gif", "5.gif",
+             "6.gif", "7.gif", "8.gif", "9.gif"]
+
+random.shuffle(fnameList)  # 이미지 순서 무작위 섞기
+
+for i in range(9):
+    photoList[i] = PhotoImage(file="" + fnameList[i]).subsample(2, 2)  # 1/2로 축소
+    btnList[i] = Button(window, image=photoList[i])
+
+# 버튼 배치
+xPos = yPos = num = 0
+for i in range(3):
+    for k in range(3):
+        btnList[num].place(x=xPos, y=yPos)
+        num += 1
+        xPos += 70
+    xPos = 0
+    yPos += 70
+
+window.mainloop()
